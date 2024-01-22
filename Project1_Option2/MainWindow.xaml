@@ -15,10 +15,11 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label Content="How many circles would you like? (Max #)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 20, 0, 0"/>
+        <Label Content="How many circles would you like? (Max 360)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 20, 0, 0"/>
         <TextBox x:Name="Input" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="20, 50, 0, 0" PreviewTextInput="Input_PreviewTextInput"/>
         <Button x:Name="Trigger" Content="Generate Circles" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="150, 50, 0, 0" Click="Trigger_Click"/>
 
         <TextBlock x:Name="errorMessage" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="20, 75, 0, 0" Foreground="Red"/>
+        <Canvas x:Name="myCanvas" HorizontalAlignment="Center" Height="300" VerticalAlignment="Center" Width="750" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="0, 80, 0, 0"/>
     </Grid>
 </Window>

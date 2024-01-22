@@ -35,27 +35,60 @@ namespace Project1_Option2
         {
             int numberOfEllipses = int.Parse(Input.Text);
 
-            if (numberOfEllipses >= 50)
+            if (numberOfEllipses > 360)
             {
-                errorMessage.Text = "Please input a number smaller than 50";
+                errorMessage.Text = "Please input a number smaller than or equal to 360";
             }
 
             else
             {
-                errorMessage.Text = "";
+                myCanvas.Children.Clear();
 
-                Ellipse[] ellipseArray = new Ellipse[50];
+                errorMessage.Text = "";
+                int yPosition = 0;
+                int ellipseNumberInRow = 0;
 
                 for (int i = 0; i < numberOfEllipses; i++)
                 {
-                    Ellipse ellipse = new Ellipse();
-                    ellipseArray[i] = ellipse;
-                }
 
-                foreach (Ellipse ellipse in ellipseArray)
-                {
+                    if (ellipseNumberInRow < 30)
+                    {
+                        Ellipse ellipse = new Ellipse
+                        {
+                            Height = 25,
+                            Width = 25,
+                            StrokeThickness = 1,
+                            Stroke = Brushes.Black, 
+                        };
 
-                }
+                        Canvas.SetLeft(ellipse, 25 * ellipseNumberInRow);
+                        Canvas.SetTop(ellipse, yPosition);
+
+                        myCanvas.Children.Add(ellipse);
+
+                        ellipseNumberInRow++;
+                    }
+                    else
+                    {
+                        ellipseNumberInRow = 0;
+                        yPosition = yPosition + 25;
+
+                        Ellipse ellipse = new Ellipse
+                        {
+                            Height = 25,
+                            Width = 25,
+                            StrokeThickness = 1,
+                            Stroke = Brushes.Black,
+                        };
+
+                        Canvas.SetLeft(ellipse, 25 * ellipseNumberInRow);
+                        Canvas.SetTop(ellipse, yPosition);
+
+                        myCanvas.Children.Add(ellipse);
+
+                        ellipseNumberInRow++;
+                    }
+                }  
             }
         }
     }
